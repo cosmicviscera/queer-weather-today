@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>queer weather today</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="nice-select2/dist/css/nice-select2.css">
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="nice-select2/dist/js/nice-select2.js"></script>
+    <script src="index.js"></script>
+
+
+
+ 
+
+ 
+
+    <div class="header">
+      <h1><a href="">queer weather today</a></h1>
+    </div>
+
+    <div class="page">
+      <div class="sidebar">
+
+        <div id="locationPicker">
+            <label for="location">Location</label>
+            <select id="locationList" name="location" placeholder = "Change location">
+            </select>
+        </div>
+        
+        <a class="pollen active">pollen</a>
+        <a class="aqi">air quality</a>
+        <a class="thunderstorm-asthma">thunderstorm asthma map</a>
+        <a class="pressure">air pressure</a>
+        <a class="temperature">temperature</a>
+        <a class="humidity">humidity</a>
+      </div>
+
+      <div class="content">
+
+        <section class="weather-category pollen">
+          <h2>Pollen</h2>
+          <section class="current">
+            <h3>Current</h3>
+          </section>
+          <section class="forecast">
+            <h3>Forecast</h3>
+          </section>
+        </section>
+
+        <section class="weather-category aqi hidden">
+          <h2>Air quality</h2>
+          <section class="current">
+            <h3>Current</h3>
+            <div>
+              <!-- test chart -->
+              <canvas id="barChart"></canvas>
+            </div>
+          </section>
+          <section class="forecast" id="aqiForecast">
+            <h3>Forecast</h3>
+          </section>
+        </section>
+
+        <section class="weather-category thunderstorm-asthma hidden">
+          <h2>Thunderstorm asthma map</h2>
+          <img src="https://subscribe.health.vic.gov.au/map/etsa/today">
+        </section>
+
+        <section class="weather-category pressure hidden">
+          <h2>Air pressure</h2>
+          <section class="current">
+            <h3>Current</h3>
+          </section>
+          <section class="forecast">
+            <h3>Forecast</h3>
+          </section>
+        </section>
+
+        <section class="weather-category temperature hidden">
+          <h2>Temperature</h2>
+          <section class="current">
+            <h3>Current</h3>
+          </section>
+          <section class="forecast">
+            <h3>Forecast</h3>
+          </section>
+        </section>
+
+        <section class="weather-category humidity hidden">
+          <h2>Humidity</h2>
+          <section class="current">
+            <h3>Current</h3>
+          </section>
+          <section class="forecast">
+            <h3>Forecast</h3>
+          </section>
+        </section>
+
+      </div> 
+    </div>
+  </body>
+</html>
