@@ -12,14 +12,14 @@ $( document ).ready(function() {
     };
     const horizontalLabels = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
     const CHART_COLORS = {
-        "ten": "#96d4ca", 
-        "twenty": "#92c2c5", 
-        "forty": "#8dafbf",
-        "fifty": "#899dba",
-        "sixty": "#858ab4",
-        "eighty": "#8078af",
-        "ninety": "#7c65a9",
-        "black": "#524370"
+        "ten": "#332288", 
+        "twenty": "#117733", 
+        "thirty": "#44AA99",
+        "fifty": "#88CCEE",
+        "seventy": "#DDCC77",
+        "eighty": "#CC6677",
+        "ninety": "#AA4499",
+        "hundred": "#882255"
     };
 
     let width, height, gradient;
@@ -33,8 +33,13 @@ $( document ).ready(function() {
         height = chartHeight;
         gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
         gradient.addColorStop(0, CHART_COLORS["ten"]);
+        gradient.addColorStop(0.2, CHART_COLORS["twenty"]);
+        gradient.addColorStop(0.3, CHART_COLORS["thirty"]);
         gradient.addColorStop(0.5, CHART_COLORS["fifty"]);
-        gradient.addColorStop(1, CHART_COLORS["ninety"]);
+        gradient.addColorStop(0.7, CHART_COLORS["seventy"]);
+        gradient.addColorStop(0.8, CHART_COLORS["eighty"]);
+        gradient.addColorStop(0.9, CHART_COLORS["ninety"]);
+        gradient.addColorStop(1, CHART_COLORS["hundred"]);
       }
 
       return gradient;
@@ -164,18 +169,18 @@ $( document ).ready(function() {
                 barColors[i] = CHART_COLORS["ten"];
             } else if (values[i] < 20) {
                  barColors[i] = CHART_COLORS["twenty"];               
-            } else if (values[i] < 40) {
-                barColors[i] = CHART_COLORS["forty"];
+            } else if (values[i] < 30) {
+                barColors[i] = CHART_COLORS["thirty"];
             } else if (values[i] < 50) {
                 barColors[i] = CHART_COLORS["fifty"];
-            } else if (values[i] < 60) {
-                barColors[i] = CHART_COLORS["sixty"];
+            } else if (values[i] < 70) {
+                barColors[i] = CHART_COLORS["seventy"];
             } else if (values[i] < 80) {
                 barColors[i] = CHART_COLORS["eighty"];
             } else if (values[i] < 90) {
                 barColors[i] = CHART_COLORS["ninety"];
             } else {
-                barColors[i] = CHART_COLORS["black"];               
+                barColors[i] = CHART_COLORS["hundred"];               
             }
         }
 
