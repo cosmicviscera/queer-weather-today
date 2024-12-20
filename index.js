@@ -12,14 +12,14 @@ $( document ).ready(function() {
     };
     const horizontalLabels = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
     const CHART_COLORS = {
-        "ten": "#332288", 
-        "twenty": "#117733", 
-        "thirty": "#44AA99",
-        "fifty": "#88CCEE",
-        "seventy": "#DDCC77",
-        "eighty": "#CC6677",
-        "ninety": "#AA4499",
-        "hundred": "#882255"
+        "ten": "#31309c", 
+        "twenty": "#25afe4", 
+        "thirty": "#24bbdb",
+        "fifty": "#2be79d",
+        "seventy": "#ddd62a",
+        "eighty": "#fc9a28",
+        "ninety": "#d1260b",
+        "hundred": "#650005"
     };
 
     let width, height, gradient;
