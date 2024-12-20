@@ -35,11 +35,6 @@ img {
   font-weight: bold;
 }
 
-div.nice-select {
-  width: 100%!important;
-  margin-bottom:30px;
-  float: none;
-}
 
 .header {
 	position:fixed;
@@ -120,6 +115,16 @@ div.content {
 }
 
 /******* location selector *******/
+
+div.nice-select {
+  width: 100%!important;
+  margin-bottom:30px;
+  float: none;
+}
+
+.nice-select.open .nice-select-dropdown {
+  width: 100%;
+}
 
 div.nice-select, .nice-select.open, .nice-select .option, .nice-select input.nice-select-search, .nice-select .nice-select-dropdown {
   background-color: var(--secondary-bg-color) !important;
