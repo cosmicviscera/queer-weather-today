@@ -15,6 +15,7 @@ body {
 	font-family: sans-serif;
   background-color: var(--bg-color);
   color: var(--fg-color);
+  margin:0;
 }
 
 img {
@@ -39,10 +40,11 @@ img {
 .header {
 	position:fixed;
 	top:0;
-	padding: 16px;
+	padding: 16px 30px;
 	background-color: var(--bg-color);
   width: 100%;
   z-index: 1;
+  border-bottom: 1px solid var(--neutral);
 }
 
 .header a {
@@ -51,11 +53,15 @@ img {
 }
 
 .page {
-	margin-top: 120px;
+	padding-top: 120px;
 }
 
 .weather-category {
-	padding: 16px;
+	padding: 0px 16px;
+}
+
+.weather-category section {
+  margin-top: 50px;
 }
 
 .aqiLinechart {
@@ -75,8 +81,7 @@ img {
 /****************************************************/
 
 .sidebar {
-  margin: 0;
-  padding: 0;
+  padding: 20px 0;
   width: 30%;
   position: fixed;
   height: 100%;
@@ -88,7 +93,7 @@ img {
 .sidebar a {
   display: block;
   color: var(--fg-color);
-  padding: 16px;
+  padding: 16px 30px;
   text-decoration: none;
   font-variant: small-caps;
   font-size: 1.5rem;
@@ -115,6 +120,10 @@ div.content {
 }
 
 /******* location selector *******/
+
+#locationPicker {
+  padding: 0px 30px;
+}
 
 div.nice-select {
   width: 100%!important;
@@ -144,12 +153,19 @@ div.nice-select, .nice-select.open, .nice-select .option, .nice-select input.nic
     height: auto;
     position: relative;
     border-right: none;
-    border-bottom: 1px solid var(--fg-color);
+    border-bottom: 1px solid var(--neutral);
   }
   .sidebar a {float: left;}
   div.content {margin-left: 0;}
   h1 {
     font-size: 1.25rem;
+  }
+  .weather-category {
+    padding: 16px 0px;
+  }
+
+  .page {
+    padding-top: 90px;
   }
 }
 
@@ -159,4 +175,9 @@ div.nice-select, .nice-select.open, .nice-select .option, .nice-select input.nic
     text-align: center;
     float: none;
   }
+
+  .page {
+    margin-top: 20px;
+  }
+
 }
