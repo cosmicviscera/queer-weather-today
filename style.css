@@ -1,7 +1,7 @@
 :root {
   --white: white;
-  --light-neutral: #96d4ca;
-  --dark-neutral: #899dba;
+  --light-neutral: #899dba;
+  --dark-neutral: #535c7b;
   --highlight: #7c65a9;
   --black: color-mix(in srgb, var(--highlight) 50%, black 50%);
 
