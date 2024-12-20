@@ -141,6 +141,10 @@ div.nice-select, .nice-select.open, .nice-select .option, .nice-select input.nic
   background-color: var(--highlight-bg-color) !important;
 }
 
+#aqiForecast {
+  margin-bottom: 50px;
+}
+
 /****** media queries ******/
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
@@ -164,12 +168,23 @@ div.nice-select, .nice-select.open, .nice-select .option, .nice-select input.nic
   .page {
     padding-top: 90px;
   }
+
+  .header {
+    padding: 16px;
+  }
+
+  .sidebar a {
+      padding: 16px;
+  }
+
+  #locationPicker {
+      padding: 0px 16px;
+  }
 }
 
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
 @media screen and (max-width: 400px) {
   .sidebar {
-    margin-left: 30px;
     padding-left:0;
   }
   .sidebar a {
@@ -177,8 +192,5 @@ div.nice-select, .nice-select.open, .nice-select .option, .nice-select input.nic
     float: none;
   }
 
-  .page {
-    margin-top: 20px;
-  }
 
 }
