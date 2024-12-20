@@ -1,12 +1,13 @@
 :root {
   --white: white;
-  --neutral: #535c7b;
+  --light-neutral: #c0c4ca;
+  --dark-neutral: #535c7b;
   --black: #2e3961;
   --highlight: #382c83;
 
   --bg-color: var(--white);
   --fg-color: var(--black);
-  --secondary-bg-color: var(--neutral);
+  --secondary-bg-color: var(--dark-neutral);
   --highlight-bg-color: var(--highlight);
   --highlight-fg-color: var(--white);
 }
@@ -34,7 +35,7 @@ img {
 	background-color: var(--bg-color);
   width: 100%;
   z-index: 1;
-  border-bottom: 1px solid var(--neutral);
+  border-bottom: 1px solid var(--light-neutral);
 }
 
 .header a {
@@ -76,7 +77,7 @@ img {
   position: fixed;
   height: 100%;
   overflow: auto;
-  border-right: 1px solid var(--neutral);
+  border-right: 1px solid var(--light-neutral);
 }
 
 /* Sidebar links */
@@ -154,7 +155,7 @@ div.nice-select, .nice-select.open, .nice-select .option, .nice-select input.nic
     height: auto;
     position: relative;
     border-right: none;
-    border-bottom: 1px solid var(--neutral);
+    border-bottom: 1px solid var(--dark-neutral);
   }
   .sidebar a {float: left;}
   div.content {margin-left: 0;}
