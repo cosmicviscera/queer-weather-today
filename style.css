@@ -81,7 +81,7 @@ img {
   position: fixed;
   height: 100%;
   overflow: auto;
-  border-right: 1px solid var(--fg-color);
+  border-right: 1px solid var(--neutral);
 }
 
 /* Sidebar links */
@@ -98,7 +98,7 @@ img {
 /* Active/current link */
 .sidebar a.active {
   background-color: var(--highlight-bg-color);
-  color: var(--bg-color);
+  color: var(--highlight-fg-color);
 }
 
 /* Links on mouse-over */
