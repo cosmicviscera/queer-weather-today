@@ -27,16 +27,6 @@ img {
 	display: none;
 }
 
-#locationPicker {
-  padding: 0px 16px 0px 16px;
-}
-
-#locationPicker label {
-  display: block;
-  font-weight: bold;
-}
-
-
 .header {
 	position:fixed;
 	top:0;
@@ -95,8 +85,9 @@ img {
   color: var(--fg-color);
   padding: 16px 30px;
   text-decoration: none;
-  font-variant: small-caps;
-  font-size: 1.5rem;
+/*  font-variant: all-small-caps;*/
+  font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
 }
 
@@ -124,6 +115,12 @@ div.content {
 #locationPicker {
   padding: 0px 30px;
 }
+
+#locationPicker label {
+  display: block;
+  font-style: italic;
+}
+
 
 div.nice-select {
   width: 100%!important;
@@ -171,6 +168,10 @@ div.nice-select, .nice-select.open, .nice-select .option, .nice-select input.nic
 
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
 @media screen and (max-width: 400px) {
+  .sidebar {
+    margin-left: 30px;
+    padding-left:0;
+  }
   .sidebar a {
     text-align: center;
     float: none;
