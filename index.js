@@ -247,4 +247,11 @@ $( document ).ready(function() {
         return numbers;
     };
 
+    // initialise "current weather" datapoints with dummy data
+    // TODO put real data in here at some point
+    $(".currentSingleDatapoint").each(function() {
+            $(this).append("<p>" + Math.round(Math.random() * 100, 1) + "</p>");
+        }
+    );
+
 });
