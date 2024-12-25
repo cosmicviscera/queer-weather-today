@@ -132,7 +132,7 @@ function initialiseForecastLinechart(dataPoints, canvasClass, parentId, isMultiF
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false,
+                maintainAspectRatio: !isMultiForecast,
                 plugins: {
                     legend: {
                         display: false // hide the annoying label
