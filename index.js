@@ -138,7 +138,7 @@ $( document ).ready(function() {
     };
 
     initialiseMultiForecast(airQualityTypes, "aqiLinechart linechart multiLinechart", "#aqiForecast", true);
-    initialiseMultiForecast(allergenTypes, "pollenLinechart linechart multiLinechart", "#pollenForecast", true);
+    initialiseMultiForecast(allergenTypes, "allergensLinechart linechart multiLinechart", "#allergensForecast", true);
     initialiseMultiForecast(['airPressure'], "airPressureLinechart linechart singleLinechart", "#airPressureForecast", false);
     initialiseMultiForecast(['temperature'], "temperatureLinechart linechart singleLinechart", "#temperatureForecast", false);
     initialiseMultiForecast(['humidity'], "humidityLinechart linechart singleLinechart", "#humidityForecast", false);
@@ -235,7 +235,7 @@ $( document ).ready(function() {
       },
     };
 
-    const pollenBarGraphConfig = {
+    const allergensBarGraphConfig = {
       type: 'bar',
       data: generateBarGraphData(allergenTypes),
       options: {
@@ -250,7 +250,7 @@ $( document ).ready(function() {
     };
 
     new Chart(document.getElementById('aqiBarChart'), aqiBarGraphConfig);
-    new Chart(document.getElementById('pollenBarChart'), pollenBarGraphConfig);
+    new Chart(document.getElementById('allergensBarChart'), allergensBarGraphConfig);
 
 
 
