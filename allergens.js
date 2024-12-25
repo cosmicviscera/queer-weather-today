@@ -32,9 +32,9 @@ $( document ).ready(function() {
       options: {
           scales: {
               x: {
-                  grid: {
-                      min: MIN, // TODO this isn't working
-                      max: MAX
+                  beginAtZero: false,
+                  ticks: {
+                    beginAtZero: false
                   }
               }
           },
