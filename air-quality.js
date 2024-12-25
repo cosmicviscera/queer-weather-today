@@ -34,5 +34,5 @@ $( document ).ready(function() {
     };
 
     new Chart(document.getElementById('aqiBarChart'), aqiBarGraphConfig);
-    
+
 });
