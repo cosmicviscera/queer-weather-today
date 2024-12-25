@@ -65,10 +65,14 @@ img {
   margin-left: 80px;
 }
 
-
+/* labels down the left side of the multi forecast linechart */
 .linechart h4 {
   float: left;
   margin: 25px 0px;
+  font-size: 0.75rem;
+  color: grey;
+  font-weight: normal;
+  text-align: right;
 }
 
 .forecast {
