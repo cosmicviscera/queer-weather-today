@@ -1,11 +1,15 @@
+const MIN = 0;
+const MAX = 100;
+
+const airQualityTypes = ["PM10", "PM25", "NO2", "SO2", "CO", "O3", "AQI"];
 
 $( document ).ready(function() {
 
-    initialiseForecastLinechart(airQualityTypes, "aqiLinechart linechart multiLinechart", "#aqiForecast", true);
+    initialiseForecastLinechart(airQualityTypes, MIN, MAX, "aqiLinechart linechart multiLinechart", "#aqiForecast", true);
 
     function generateBarGraphData(dataPoints) {
         // placeholder data
-        const currentForecast = generateRandomForecast();
+        const currentForecast = generateRandomForecast(MIN, MAX);
         return {
             labels: dataPoints,
             datasets: [{

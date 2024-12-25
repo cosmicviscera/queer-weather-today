@@ -1,6 +1,5 @@
 const locations = ["Melbourne CBD", "Ivanhoe", "Northcote",
     "Footscray", "Frankston", "Dandenong", "Reservoir", "Preston"];
-const airQualityTypes = ["PM10", "PM25", "NO2", "SO2", "CO", "O3", "AQI"];
 const horizontalLabels = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
 const CHART_COLORS = {
     "ten": "#31309c",
@@ -19,6 +18,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
 }
 
+// TODO write a version of this function to deal with arrays of numbers, for the graphs
 function normaliseNumberRange(val, min, max) {
     return (val - min) / (max - min) * 100;
 }
@@ -46,7 +46,6 @@ function getGradient(ctx, chartArea) {
   return gradient;
 }
 
-// TODO once we have real data, this function needs to be updated to get actual percentiles
 function generateBarColors(values) {
     let barColors = [];
     for (let i = 0; i < values.length; i++) {
@@ -72,7 +71,6 @@ function generateBarColors(values) {
     return barColors;
 }
 
-// TODO this function needs to be updated to get actual percentiles independent of number range
 function generatePercentileClass(singleDatapointValue) {
     if (singleDatapointValue < 10) {
         return "ten";
@@ -121,15 +119,15 @@ function generateAppropriateFgColor(bgColor) {
 }
 
 // TODO this is boilerplate config, in the future it will use real data specific to the air quality metric in question
-function generateRandomForecast() {
+function generateRandomForecast(min, max) {
     const numbers = [];
     for (let i = 0; i < 28; i++) {
-        numbers.push(getRandomInt(0, 100));
+        numbers.push(getRandomInt(min, max));
     };
     return numbers;
 }
 
-function initialiseForecastLinechart(dataPoints, canvasClass, parentId, isMultiForecast) {
+function initialiseForecastLinechart(dataPoints, min, max, canvasClass, parentId, isMultiForecast) {
     for (let i = 0; i < dataPoints.length; i++) {
         const canvasId = dataPoints[i] + "Chart";
         let heightString = "";
@@ -176,7 +174,7 @@ function initialiseForecastLinechart(dataPoints, canvasClass, parentId, isMultiF
               // uncomment this to see a version combined into a single graph
               // datasets: generateAqiDatasets()
               datasets: [{
-                label: "ppm", data: generateRandomForecast(),
+                label: "ppm", data: generateRandomForecast(min, max),
                 borderColor: function(context) {
                         const chart = context.chart;
                         const {ctx, chartArea} = chart;

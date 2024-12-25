@@ -4,7 +4,7 @@ const MAX = 1035;
 $( document ).ready(function() {
 
     // TODO parameterise min and max into this function
-    initialiseForecastLinechart(['airPressure'], "airPressureLinechart linechart singleLinechart", "#airPressureForecast", false);
+    initialiseForecastLinechart(['airPressure'], MIN, MAX,"airPressureLinechart linechart singleLinechart", "#airPressureForecast", false);
 
     // TODO put real data in here at some point
     const singleDatapointValue = getRandomInt(MIN, MAX);

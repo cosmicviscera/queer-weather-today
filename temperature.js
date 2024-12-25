@@ -3,8 +3,7 @@ const MAX = 50;
 
 $( document ).ready(function() {
 
-    // TODO parameterise min and max into this function
-    initialiseForecastLinechart(['temperature'], "temperatureLinechart linechart singleLinechart", "#temperatureForecast", false);
+    initialiseForecastLinechart(['temperature'], MIN, MAX,"temperatureLinechart linechart singleLinechart", "#temperatureForecast", false);
 
     // TODO put real data in here at some point
     const singleDatapointValue = getRandomInt(MIN, MAX);

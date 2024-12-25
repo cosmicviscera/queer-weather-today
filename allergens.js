@@ -1,3 +1,6 @@
+const MIN = 0;
+const MAX = 100;
+
 const allergenTypes = [
     "Grass", "Alternaria", "Plantain",
     "Birch", "Cypress", "Myrtle", "Olive", "Plane"
@@ -5,11 +8,11 @@ const allergenTypes = [
 
 $( document ).ready(function() {
 
-    initialiseForecastLinechart(allergenTypes, "allergensLinechart linechart multiLinechart", "#allergensForecast", true);
+    initialiseForecastLinechart(allergenTypes, MIN, MAX, "allergensLinechart linechart multiLinechart", "#allergensForecast", true);
 
     function generateBarGraphData(dataPoints) {
         // placeholder data
-        const currentForecast = generateRandomForecast();
+        const currentForecast = generateRandomForecast(MIN, MAX);
         return {
             labels: dataPoints,
             datasets: [{

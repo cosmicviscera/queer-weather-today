@@ -1,10 +1,12 @@
+const MIN = 0;
+const MAX = 100;
 
 $( document ).ready(function() {
 
-    initialiseForecastLinechart(['humidity'], "humidityLinechart linechart singleLinechart", "#humidityForecast", false);
+    initialiseForecastLinechart(['humidity'], MIN, MAX,"humidityLinechart linechart singleLinechart", "#humidityForecast", false);
 
     // TODO put real data in here at some point
-    const singleDatapointValue = getRandomInt(0, 100);
+    const singleDatapointValue = getRandomInt(MIN, MAX);
 
     $(".currentSingleDatapoint").append(
         "<p>" + singleDatapointValue + "%</p>"
