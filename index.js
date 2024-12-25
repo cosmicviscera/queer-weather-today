@@ -42,6 +42,7 @@ function getGradient(ctx, chartArea) {
   return gradient;
 }
 
+// TODO once we have real data, this function needs to be updated to get actual percentiles
 function generateBarColors(values) {
     let barColors = [];
     for (let i = 0; i < values.length; i++) {
@@ -67,6 +68,7 @@ function generateBarColors(values) {
     return barColors;
 }
 
+// TODO this function needs to be updated to get actual percentiles independent of number range
 function generatePercentileClass(singleDatapointValue) {
     if (singleDatapointValue < 10) {
         return "ten";
