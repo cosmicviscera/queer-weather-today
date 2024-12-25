@@ -85,7 +85,7 @@ img {
 }
 
 .multiLinechart canvas {
-  margin-left: 80px;
+  margin-left: 4rem;
 }
 
 /* labels down the left side of the multi forecast linechart */
