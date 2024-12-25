@@ -44,25 +44,39 @@ $( document ).ready(function() {
       return gradient;
     }
 
-    function initialiseMultiForecast(dataPoints, canvasClass, parentId) {
+    function initialiseMultiForecast(dataPoints, canvasClass, parentId, isMultiForecast) {
         for (let i = 0; i < dataPoints.length; i++) {
-
-            // Only show labels for the last graph in the set
+            const canvasId = dataPoints[i] + "Chart";
+            var heightString = "";
+            var horizontalLabelDisplay = true;
             var lastItem = i == dataPoints.length - 1;
-            var horizontalLabelDisplay = false;
-            var height = "70px";
-            if (lastItem) {
-                horizontalLabelDisplay = true;
-                height = "90px";
+            var dataLabel = "";
+
+            // Only restrict height if we're showing multiple linegraphs
+            if (isMultiForecast) {
+                var height = "70px";
+
+                // Only show the left label if there's multiple forecasts
+                dataLabel = dataPoints[i];
+
+                // Only show labels for the last graph in the set
+                // last graph in set needs a biger height due to quirks
+                if (lastItem) {
+                    height = "90px";
+                } else {
+                    horizontalLabelDisplay = false;
+                }
+
+                // only include a height specification if multiforecast
+                heightString = "style='height: " + height + "'";
             }
 
-            // create canvases for each AQI metric
 
-            const canvasId = dataPoints[i] + "Chart";
+            // create canvases for each datapoint
 
             $(parentId).append(
-                "<div style='height: " + height + "' class='" + canvasClass + "'><h4>"
-                + dataPoints[i] + "</h4><canvas id='"
+                "<div  class='" + canvasClass + "'" + heightString + "><h4>"
+                + dataLabel + "</h4><canvas id='"
                 + canvasId
                 + "'></canvas></div>"
             );
@@ -101,18 +115,18 @@ $( document ).ready(function() {
                     scales: {
                         x: {
                             grid: {
-                                display: true
+                                display: !isMultiForecast
                             },
                             ticks: {
-                                display: horizontalLabelDisplay
+                                display: !isMultiForecast && horizontalLabelDisplay
                             }
                         },
                         y: {
                             grid: {
-                                display: false
+                                display: !isMultiForecast
                             },
                             ticks: {
-                                display: false
+                                display: !isMultiForecast
                             }
                         }
                     }
@@ -123,8 +137,11 @@ $( document ).ready(function() {
 
     };
 
-    initialiseMultiForecast(airQualityTypes, "aqiLinechart linechart", "#aqiForecast");
-    initialiseMultiForecast(allergenTypes, "pollenLinechart linechart", "#pollenForecast");
+    initialiseMultiForecast(airQualityTypes, "aqiLinechart linechart multiLinechart", "#aqiForecast", true);
+    initialiseMultiForecast(allergenTypes, "pollenLinechart linechart multiLinechart", "#pollenForecast", true);
+    initialiseMultiForecast(['airPressure'], "airPressureLinechart linechart singleLinechart", "#airPressureForecast", false);
+    initialiseMultiForecast(['temperature'], "temperatureLinechart linechart singleLinechart", "#temperatureForecast", false);
+    initialiseMultiForecast(['humidity'], "humidityLinechart linechart singleLinechart", "#humidityForecast", false);
 
 
     // add our list of locations to the search dropdown
