@@ -47,6 +47,12 @@ img {
   border-bottom: 1px solid var(--light-neutral);
 }
 
+#logo {
+  width: 30px;
+  margin-right: 16px;
+  float: left;
+}
+
 .header a {
 	color: var(--fg-color);
 	text-decoration: none;
