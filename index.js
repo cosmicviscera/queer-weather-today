@@ -5,11 +5,10 @@ $( document ).ready(function() {
     const locations = ["Melbourne CBD", "Ivanhoe", "Northcote", 
         "Footscray", "Frankston", "Dandenong", "Reservoir", "Preston"];
     const airQualityTypes = ["PM10", "PM25", "NO2", "SO2", "CO", "O3", "AQI"];
-    const pollenTypes = {"Grass": ["Grass"], "Mould": ["Alternaria"], "Weed": ["Plantain"], 
-        "Tree": [
-            "Birch", "Cypress", "Myrtle", "Olive", "Plane"
-        ]
-    };
+    const allergenTypes = [
+        "Grass", "Alternaria mould", "Plantain",
+        "Birch", "Cypress", "Myrtle", "Olive", "Plane"
+    ];
     const horizontalLabels = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
     const CHART_COLORS = {
         "ten": "#31309c", 
@@ -45,11 +44,11 @@ $( document ).ready(function() {
       return gradient;
     }
 
-    function initialiseAqiForecast() {
-        for (let i = 0; i < airQualityTypes.length; i++) {
+    function initialiseMultiForecast(dataPoints, canvasClass) {
+        for (let i = 0; i < dataPoints.length; i++) {
 
             // Only show labels for the last graph in the set
-            var lastItem = i == airQualityTypes.length - 1;
+            var lastItem = i == dataPoints.length - 1;
             var horizontalLabelDisplay = false;
             var height = "70px";
             if (lastItem) {
@@ -59,11 +58,11 @@ $( document ).ready(function() {
 
             // create canvases for each AQI metric
 
-            const canvasId = airQualityTypes[i] + "Chart";
+            const canvasId = dataPoints[i] + "Chart";
 
             $("#aqiForecast").append(
-                "<div style='height: " + height + "' class='aqiLinechart'><h4>"
-                + airQualityTypes[i] + "</h4><canvas id='" 
+                "<div style='height: " + height + "' class='" + canvasClass + "'><h4>"
+                + dataPoints[i] + "</h4><canvas id='"
                 + canvasId
                 + "'></canvas></div>"
             );
@@ -124,7 +123,7 @@ $( document ).ready(function() {
 
     };
 
-    initialiseAqiForecast();
+    initialiseMultiForecast(airQualityTypes, "aqiLinechart");
 
 
     // add our list of locations to the search dropdown
@@ -218,7 +217,7 @@ $( document ).ready(function() {
       },
     };
 
-    new Chart(document.getElementById('barChart'), barConfig);
+    new Chart(document.getElementById('aqiBarChart'), barConfig);
 
 
 
