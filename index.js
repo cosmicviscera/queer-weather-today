@@ -37,7 +37,7 @@ function getGradient(ctx, chartArea) {
 }
 
 function generateBarColors(values) {
-    var barColors = [];
+    let barColors = [];
     for (let i = 0; i < values.length; i++) {
         if (values[i] < 10) {
             barColors[i] = CHART_COLORS["ten"];
@@ -73,14 +73,14 @@ function generateRandomForecast() {
 function initialiseForecastLinechart(dataPoints, canvasClass, parentId, isMultiForecast) {
     for (let i = 0; i < dataPoints.length; i++) {
         const canvasId = dataPoints[i] + "Chart";
-        var heightString = "";
-        var horizontalLabelDisplay = true;
-        var lastItem = i == dataPoints.length - 1;
-        var dataLabel = "";
+        let heightString = "";
+        let horizontalLabelDisplay = true;
+        let lastItem = i == dataPoints.length - 1;
+        let dataLabel = "";
 
         // Only restrict height if we're showing multiple linegraphs
         if (isMultiForecast) {
-            var height = "70px";
+            let height = "70px";
 
             // Only show the left label if there's multiple forecasts
             dataLabel = dataPoints[i];
@@ -179,7 +179,7 @@ $( document ).ready(function() {
             }
         });
 
-        var options = {searchable: true};
+        let options = {searchable: true};
         NiceSelect.bind(document.getElementById("locationList"), options);
     }
     initialiseLocationPicker();
