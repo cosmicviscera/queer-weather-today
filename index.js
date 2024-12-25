@@ -1,6 +1,6 @@
 const locations = ["Melbourne CBD", "Ivanhoe", "Northcote",
     "Footscray", "Frankston", "Dandenong", "Reservoir", "Preston"];
-
+const airQualityTypes = ["PM10", "PM25", "NO2", "SO2", "CO", "O3", "AQI"];
 const horizontalLabels = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
 const CHART_COLORS = {
     "ten": "#31309c",
