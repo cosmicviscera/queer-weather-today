@@ -118,7 +118,7 @@ $( document ).ready(function() {
                                 display: !isMultiForecast
                             },
                             ticks: {
-                                display: !isMultiForecast && horizontalLabelDisplay
+                                display: horizontalLabelDisplay
                             }
                         },
                         y: {
