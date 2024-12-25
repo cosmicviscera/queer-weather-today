@@ -5,10 +5,11 @@ $( document ).ready(function() {
 
     // TODO put real data in here at some point
     const singleDatapointValue = getRandomInt(900, 1035);
+    const normalisedValue = normaliseNumberRange(singleDatapointValue, 900, 1035);
 
     $(".currentSingleDatapoint").append(
         "<p>" + singleDatapointValue + " hPa</p>"
-    ).addClass(generatePercentileClass(singleDatapointValue));
+    ).addClass(generatePercentileClass(normalisedValue));
 
     let bgColor = $(".currentSingleDatapoint").css("background-color");
     $(".currentSingleDatapoint").addClass(generateAppropriateFgColor(bgColor));
