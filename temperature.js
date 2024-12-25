@@ -132,6 +132,8 @@ $( document ).ready(function() {
 
     };
 
+    initialiseMultiForecast(['temperature'], "temperatureLinechart linechart singleLinechart", "#temperatureForecast", false);
+
     // Update forecasts - TODO placeholder for when we have real data to update
     function updateForecasts(location) {
         console.log("Current location has been changed to: " + location);
@@ -163,6 +165,7 @@ $( document ).ready(function() {
     }
 
 
+
     // TODO this is boilerplate config, in the future it will use real data specific to the air quality metric in question
     function generateRandomForecast() {
         const numbers = [];
@@ -171,6 +174,13 @@ $( document ).ready(function() {
         };
         return numbers;
     };
+
+    // initialise "current weather" datapoints with dummy data
+    // TODO put real data in here at some point
+    $(".currentSingleDatapoint").each(function() {
+            $(this).append("<p>" + Math.round(Math.random() * 100, 1) + "</p>");
+        }
+    );
 
 
     /////////////// location picker //////////////

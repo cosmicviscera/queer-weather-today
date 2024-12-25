@@ -132,6 +132,8 @@ $( document ).ready(function() {
 
     };
 
+    initialiseMultiForecast(['humidity'], "humidityLinechart linechart singleLinechart", "#humidityForecast", false);
+
     // Update forecasts - TODO placeholder for when we have real data to update
     function updateForecasts(location) {
         console.log("Current location has been changed to: " + location);
@@ -162,6 +164,23 @@ $( document ).ready(function() {
         return barColors;
     }
 
+    function generateBarGraphData(dataPoints) {
+        // placeholder data
+        const currentForecast = generateRandomForecast();
+        return {
+            labels: dataPoints,
+            datasets: [{
+                axis: 'y',
+                label: "ppm",
+                data: currentForecast,
+                fill: false,
+                backgroundColor: generateBarColors(currentForecast),
+                borderWidth: 1
+            }]
+        };
+    }
+
+
 
     // TODO this is boilerplate config, in the future it will use real data specific to the air quality metric in question
     function generateRandomForecast() {
@@ -171,6 +190,13 @@ $( document ).ready(function() {
         };
         return numbers;
     };
+
+    // initialise "current weather" datapoints with dummy data
+    // TODO put real data in here at some point
+    $(".currentSingleDatapoint").each(function() {
+            $(this).append("<p>" + Math.round(Math.random() * 100, 1) + "</p>");
+        }
+    );
 
 
     /////////////// location picker //////////////

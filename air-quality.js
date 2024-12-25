@@ -3,6 +3,7 @@ $( document ).ready(function() {
 
     const locations = ["Melbourne CBD", "Ivanhoe", "Northcote", 
         "Footscray", "Frankston", "Dandenong", "Reservoir", "Preston"];
+    const airQualityTypes = ["PM10", "PM25", "NO2", "SO2", "CO", "O3", "AQI"];
 
     const horizontalLabels = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
     const CHART_COLORS = {
@@ -132,6 +133,8 @@ $( document ).ready(function() {
 
     };
 
+    initialiseMultiForecast(airQualityTypes, "aqiLinechart linechart multiLinechart", "#aqiForecast", true);
+
     // Update forecasts - TODO placeholder for when we have real data to update
     function updateForecasts(location) {
         console.log("Current location has been changed to: " + location);
@@ -162,6 +165,42 @@ $( document ).ready(function() {
         return barColors;
     }
 
+    function generateBarGraphData(dataPoints) {
+        // placeholder data
+        const currentForecast = generateRandomForecast();
+        return {
+            labels: dataPoints,
+            datasets: [{
+                axis: 'y',
+                label: "ppm",
+                data: currentForecast,
+                fill: false,
+                backgroundColor: generateBarColors(currentForecast),
+                borderWidth: 1
+            }]
+        };
+    }
+
+    const aqiBarGraphConfig = {
+      type: 'bar',
+      data: generateBarGraphData(airQualityTypes),
+      options: {
+        responsive: true,
+        indexAxis: 'y',
+        plugins: {
+            legend: {
+                display: false
+            }
+        }
+      },
+    };
+
+
+
+    new Chart(document.getElementById('aqiBarChart'), aqiBarGraphConfig);
+
+
+
 
     // TODO this is boilerplate config, in the future it will use real data specific to the air quality metric in question
     function generateRandomForecast() {
@@ -171,6 +210,13 @@ $( document ).ready(function() {
         };
         return numbers;
     };
+
+    // initialise "current weather" datapoints with dummy data
+    // TODO put real data in here at some point
+    $(".currentSingleDatapoint").each(function() {
+            $(this).append("<p>" + Math.round(Math.random() * 100, 1) + "</p>");
+        }
+    );
 
 
     /////////////// location picker //////////////

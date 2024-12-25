@@ -4,6 +4,10 @@ $( document ).ready(function() {
     const locations = ["Melbourne CBD", "Ivanhoe", "Northcote", 
         "Footscray", "Frankston", "Dandenong", "Reservoir", "Preston"];
 
+    const allergenTypes = [
+        "Grass", "Alternaria", "Plantain",
+        "Birch", "Cypress", "Myrtle", "Olive", "Plane"
+    ];
     const horizontalLabels = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
     const CHART_COLORS = {
         "ten": "#31309c", 
@@ -132,6 +136,8 @@ $( document ).ready(function() {
 
     };
 
+    initialiseMultiForecast(allergenTypes, "allergensLinechart linechart multiLinechart", "#allergensForecast", true);
+
     // Update forecasts - TODO placeholder for when we have real data to update
     function updateForecasts(location) {
         console.log("Current location has been changed to: " + location);
@@ -162,6 +168,40 @@ $( document ).ready(function() {
         return barColors;
     }
 
+    function generateBarGraphData(dataPoints) {
+        // placeholder data
+        const currentForecast = generateRandomForecast();
+        return {
+            labels: dataPoints,
+            datasets: [{
+                axis: 'y',
+                label: "ppm",
+                data: currentForecast,
+                fill: false,
+                backgroundColor: generateBarColors(currentForecast),
+                borderWidth: 1
+            }]
+        };
+    }
+
+    const allergensBarGraphConfig = {
+      type: 'bar',
+      data: generateBarGraphData(allergenTypes),
+      options: {
+        responsive: true,
+        indexAxis: 'y',
+        plugins: {
+            legend: {
+                display: false
+            }
+        }
+      },
+    };
+
+    new Chart(document.getElementById('allergensBarChart'), allergensBarGraphConfig);
+
+
+
 
     // TODO this is boilerplate config, in the future it will use real data specific to the air quality metric in question
     function generateRandomForecast() {
@@ -171,6 +211,13 @@ $( document ).ready(function() {
         };
         return numbers;
     };
+
+    // initialise "current weather" datapoints with dummy data
+    // TODO put real data in here at some point
+    $(".currentSingleDatapoint").each(function() {
+            $(this).append("<p>" + Math.round(Math.random() * 100, 1) + "</p>");
+        }
+    );
 
 
     /////////////// location picker //////////////

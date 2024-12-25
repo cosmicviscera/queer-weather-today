@@ -132,35 +132,14 @@ $( document ).ready(function() {
 
     };
 
+
+    initialiseMultiForecast(['airPressure'], "airPressureLinechart linechart singleLinechart", "#airPressureForecast", false);
+
     // Update forecasts - TODO placeholder for when we have real data to update
     function updateForecasts(location) {
         console.log("Current location has been changed to: " + location);
     }
 
-    function generateBarColors(values) {
-        var barColors = [];
-        for (let i = 0; i < values.length; i++) {
-            if (values[i] < 10) {
-                barColors[i] = CHART_COLORS["ten"];
-            } else if (values[i] < 20) {
-                 barColors[i] = CHART_COLORS["twenty"];               
-            } else if (values[i] < 30) {
-                barColors[i] = CHART_COLORS["thirty"];
-            } else if (values[i] < 50) {
-                barColors[i] = CHART_COLORS["fifty"];
-            } else if (values[i] < 70) {
-                barColors[i] = CHART_COLORS["seventy"];
-            } else if (values[i] < 80) {
-                barColors[i] = CHART_COLORS["eighty"];
-            } else if (values[i] < 90) {
-                barColors[i] = CHART_COLORS["ninety"];
-            } else {
-                barColors[i] = CHART_COLORS["hundred"];               
-            }
-        }
-
-        return barColors;
-    }
 
 
     // TODO this is boilerplate config, in the future it will use real data specific to the air quality metric in question
@@ -171,6 +150,13 @@ $( document ).ready(function() {
         };
         return numbers;
     };
+
+    // initialise "current weather" datapoints with dummy data
+    // TODO put real data in here at some point
+    $(".currentSingleDatapoint").each(function() {
+            $(this).append("<p>" + Math.round(Math.random() * 100, 1) + "</p>");
+        }
+    );
 
 
     /////////////// location picker //////////////

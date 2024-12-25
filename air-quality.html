@@ -12,7 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="nice-select2/dist/js/nice-select2.js"></script>
-    <script src="allergens.js"></script>
+    <script src="air-quality.js"></script>
 
 
 
@@ -33,8 +33,8 @@
             </select>
         </div>
         
-        <a href="index.html" class="allergens active">Allergens</a>
-        <a href="air-quality.html" class="air-quality">Air quality</a>
+        <a href="index.html" class="allergens">Allergens</a>
+        <a href="air-quality.html" class="air-quality active">Air quality</a>
         <a href="thunderstorm-asthma.html" class="thunderstorm-asthma">Thunderstorm asthma map</a>
         <a href="air-pressure.html" class="air-pressure">Air pressure</a>
         <a href="temperature.html" class="temperature">Temperature</a>
@@ -42,16 +42,17 @@
       </div>
 
       <div class="content">
-        <section class="weather-category allergens">
 
-          <h2>Allergens</h2>
+        <section class="weather-category air-quality">
+
+          <h2>Air quality</h2>
           <section class="current">
             <h3>Current</h3>
             <div>
-              <canvas id="allergensBarChart"></canvas>
+              <canvas id="aqiBarChart"></canvas>
             </div>
           </section>
-          <section class="forecast" id="allergensForecast">
+          <section class="forecast" id="aqiForecast">
             <h3>Forecast</h3>
           </section>
         </section>
