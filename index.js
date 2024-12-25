@@ -13,6 +13,12 @@ const CHART_COLORS = {
     "hundred": "#650005"
 };
 
+function getRandomInt(min, max) {
+  const minCeiled = Math.ceil(min);
+  const maxFloored = Math.floor(max);
+  return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
+}
+
 let width, height, gradient;
 function getGradient(ctx, chartArea) {
   const chartWidth = chartArea.right - chartArea.left;
@@ -112,7 +118,7 @@ function generateAppropriateFgColor(bgColor) {
 function generateRandomForecast() {
     const numbers = [];
     for (let i = 0; i < 28; i++) {
-        numbers.push(Math.random() * 100);
+        numbers.push(getRandomInt(0, 100));
     };
     return numbers;
 }
