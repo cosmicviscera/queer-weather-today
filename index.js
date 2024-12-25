@@ -6,7 +6,7 @@ $( document ).ready(function() {
         "Footscray", "Frankston", "Dandenong", "Reservoir", "Preston"];
     const airQualityTypes = ["PM10", "PM25", "NO2", "SO2", "CO", "O3", "AQI"];
     const allergenTypes = [
-        "Grass", "Alternaria mould", "Plantain",
+        "Grass", "Alternaria", "Plantain",
         "Birch", "Cypress", "Myrtle", "Olive", "Plane"
     ];
     const horizontalLabels = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
@@ -123,8 +123,8 @@ $( document ).ready(function() {
 
     };
 
-    initialiseMultiForecast(airQualityTypes, "aqiLinechart", "#aqiForecast");
-    initialiseMultiForecast(allergenTypes, "pollenLinechart", "#pollenForecast");
+    initialiseMultiForecast(airQualityTypes, "aqiLinechart linechart", "#aqiForecast");
+    initialiseMultiForecast(allergenTypes, "pollenLinechart linechart", "#pollenForecast");
 
 
     // add our list of locations to the search dropdown

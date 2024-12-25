@@ -55,19 +55,26 @@ img {
   margin-top: 50px;
 }
 
-.aqiLinechart {
+/******** forecast layout ******/
+
+.linechart {
   padding: 0;
 }
 
-.aqiLinechart canvas {
+.linechart canvas {
   margin-left: 80px;
 }
 
 
-.aqiLinechart h4 {
+.linechart h4 {
   float: left;
   margin: 25px 0px;
 }
+
+.forecast {
+  margin-bottom: 50px;
+}
+
 
 /****************************************************/
 
@@ -142,9 +149,6 @@ div.nice-select, .nice-select.open, .nice-select .option, .nice-select input.nic
   background-color: var(--highlight-bg-color) !important;
 }
 
-#aqiForecast {
-  margin-bottom: 50px;
-}
 
 /****** media queries ******/
 
