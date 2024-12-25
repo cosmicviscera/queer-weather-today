@@ -61,6 +61,26 @@ function generateBarColors(values) {
     return barColors;
 }
 
+function generatePercentileClass(singleDatapointValue) {
+    if (singleDatapointValue < 10) {
+        return "ten";
+    } else if (singleDatapointValue < 20) {
+         return "twenty";
+    } else if (singleDatapointValue < 30) {
+        return "thirty";
+    } else if (singleDatapointValue < 50) {
+        return "fifty";
+    } else if (singleDatapointValue < 70) {
+        return "seventy";
+    } else if (singleDatapointValue < 80) {
+        return "eighty";
+    } else if (singleDatapointValue < 90) {
+        return "ninety";
+    } else {
+        return "hundred";
+    }
+}
+
 // TODO this is boilerplate config, in the future it will use real data specific to the air quality metric in question
 function generateRandomForecast() {
     const numbers = [];

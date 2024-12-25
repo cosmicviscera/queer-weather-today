@@ -10,6 +10,15 @@
   --secondary-bg-color: var(--dark-neutral);
   --highlight-bg-color: var(--highlight);
   --highlight-fg-color: var(--white);
+
+  --tenth-percentile: #31309c;
+  --twentieth-percentile: #25afe4;
+  --thirtieth-percentile: #24bbdb;
+  --fiftieth-percentile: #2be79d;
+  --seventieth-percentile: #ddd62a;
+  --eightieth-percentile: #fc9a28;
+  --ninetieth-percentile: #d1260b;
+  --hundredth-percentile: #650005;
 }
 
 body {
@@ -60,7 +69,6 @@ img {
   font-size: 1.5rem;
   text-align: center;
   color: var(--fg-color);
-  background: lightgray;
   padding: 30px;
 }
 
@@ -88,7 +96,32 @@ img {
   margin-bottom: 50px;
 }
 
-
+/****************************************************/
+/* percentile colorschemes */
+.ten {
+    background-color: var(--tenth-percentile);
+}
+.twenty {
+    background-color: var(--twentieth-percentile);
+}
+.thirty {
+    background-color: var(--thirtieth-percentile);
+}
+.fifty {
+    background-color: var(--fiftieth-percentile);
+}
+.seventy {
+    background-color: var(--seventieth-percentile);
+}
+.eighty {
+    background-color: var(--eightieth-percentile);
+}
+.ninety {
+    background-color: var(--ninetieth-percentile);
+}
+.hundred {
+    background-color: var(--hundredth-percentile);
+}
 /****************************************************/
 
 .sidebar {

@@ -4,7 +4,9 @@ $( document ).ready(function() {
     initialiseForecastLinechart(['temperature'], "temperatureLinechart linechart singleLinechart", "#temperatureForecast", false);
 
     // TODO put real data in here at some point
-    $(".currentSingleDatapoint").append("<p>" + Math.round(Math.random() * 100, 1) + "</p>");
+    const singleDatapointValue = Math.round(Math.random() * 100, 1);
+    $(".currentSingleDatapoint").append(
+        "<p>" + singleDatapointValue + "</p>"
+    ).addClass(generatePercentileClass(singleDatapointValue));
 
-    // TODO programmatically pick color for single datapoint background
 });
