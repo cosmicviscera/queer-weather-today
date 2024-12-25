@@ -275,5 +275,26 @@ $( document ).ready(function() {
         $(this).addClass("active");
     });
 
+    // Accessible sidebar elements: listen for focus and switch page if user hits enter
+    $(".sidebar > a ").on("focus", function() {
+        // get only the first class from the element
+        const sidebarLink = $(this);
+        const sectionClass = sidebarLink.attr("class").split(' ')[0];
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                $(".weather-category").addClass("hidden");
+                $(".weather-category."+sectionClass).removeClass("hidden");
+
+                $(".sidebar > a").removeClass("active");
+                sidebarLink.addClass("active");
+
+                // don't follow the link, and exist the listener
+                event.preventDefault();
+                return false;
+            }
+        });
+    });
+
 
 });
