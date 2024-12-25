@@ -44,7 +44,7 @@ $( document ).ready(function() {
       return gradient;
     }
 
-    function initialiseMultiForecast(dataPoints, canvasClass) {
+    function initialiseMultiForecast(dataPoints, canvasClass, parentId) {
         for (let i = 0; i < dataPoints.length; i++) {
 
             // Only show labels for the last graph in the set
@@ -60,7 +60,7 @@ $( document ).ready(function() {
 
             const canvasId = dataPoints[i] + "Chart";
 
-            $("#aqiForecast").append(
+            $(parentId).append(
                 "<div style='height: " + height + "' class='" + canvasClass + "'><h4>"
                 + dataPoints[i] + "</h4><canvas id='"
                 + canvasId
@@ -123,7 +123,8 @@ $( document ).ready(function() {
 
     };
 
-    initialiseMultiForecast(airQualityTypes, "aqiLinechart");
+    initialiseMultiForecast(airQualityTypes, "aqiLinechart", "#aqiForecast");
+    initialiseMultiForecast(allergenTypes, "pollenLinechart", "#pollenForecast");
 
 
     // add our list of locations to the search dropdown
@@ -187,25 +188,25 @@ $( document ).ready(function() {
         return barColors;
     }
 
+    function generateBarGraphData(dataPoints) {
+        // placeholder data
+        const currentForecast = generateRandomForecast();
+        return {
+            labels: dataPoints,
+            datasets: [{
+                axis: 'y',
+                label: "ppm",
+                data: currentForecast,
+                fill: false,
+                backgroundColor: generateBarColors(currentForecast),
+                borderWidth: 1
+            }]
+        };
+    }
 
-    // placeholder code for bar chart
-
-    const currentAQ = generateRandomForecast();
-    const barData = {
-      labels: airQualityTypes,
-      datasets: [{
-        axis: 'y',
-        label: "ppm",
-        data: currentAQ,
-        fill: false,
-        backgroundColor: generateBarColors(currentAQ),
-        borderWidth: 1
-      }]
-    };
-
-    const barConfig = {
+    const aqiBarGraphConfig = {
       type: 'bar',
-      data: barData,
+      data: generateBarGraphData(airQualityTypes),
       options: {
         responsive: true,
         indexAxis: 'y',
@@ -217,7 +218,22 @@ $( document ).ready(function() {
       },
     };
 
-    new Chart(document.getElementById('aqiBarChart'), barConfig);
+    const pollenBarGraphConfig = {
+      type: 'bar',
+      data: generateBarGraphData(allergenTypes),
+      options: {
+        responsive: true,
+        indexAxis: 'y',
+        plugins: {
+            legend: {
+                display: false
+            }
+        }
+      },
+    };
+
+    new Chart(document.getElementById('aqiBarChart'), aqiBarGraphConfig);
+    new Chart(document.getElementById('pollenBarChart'), pollenBarGraphConfig);
 
 
 
@@ -229,15 +245,6 @@ $( document ).ready(function() {
             numbers.push(Math.random() * 100);
         };
         return numbers;
-    };
-
-    function generateAqiDatasets() {
-        dataset = [];
-        for (let i = 0; i < airQualityTypes.length; i++) {
-            var forecast = generateRandomForecast();
-            dataset.push({label: airQualityTypes[i], data: forecast});
-        }
-        return dataset;
     };
 
 });
