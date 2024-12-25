@@ -81,6 +81,33 @@ function generatePercentileClass(singleDatapointValue) {
     }
 }
 
+// Programmatically determine whether fg color should be light or dark depending
+// on luminance of bg
+function colorIsDark(rgb) {
+    if (/^#[0-9A-F]{6}$/i.test(rgb)) return rgb;
+    rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    let r = parseInt(rgb[1]);
+    let g = parseInt(rgb[2]);
+    let b = parseInt(rgb[3]);
+    let uicolors = [r / 255, g / 255, b / 255];
+    let c = uicolors.map((col) => {
+        if (col <= 0.03928) {
+          return col / 12.92;
+        }
+        return Math.pow((col + 0.055) / 1.055, 2.4);
+    });
+    let L = (0.2126 * c[0]) + (0.7152 * c[1]) + (0.0722 * c[2]);
+    return L <= 0.179;
+}
+
+function generateAppropriateFgColor(bgColor) {
+    if (colorIsDark(bgColor)) {
+        return "lightFg";
+    } else {
+        return "darkFg";
+    }
+}
+
 // TODO this is boilerplate config, in the future it will use real data specific to the air quality metric in question
 function generateRandomForecast() {
     const numbers = [];

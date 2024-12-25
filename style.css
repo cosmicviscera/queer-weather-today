@@ -122,6 +122,13 @@ img {
 .hundred {
     background-color: var(--hundredth-percentile);
 }
+
+.darkFg {
+  color: var(--black);
+}
+.lightFg {
+  color: var(--white);
+}
 /****************************************************/
 
 .sidebar {

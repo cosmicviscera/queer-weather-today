@@ -8,4 +8,9 @@ $( document ).ready(function() {
     $(".currentSingleDatapoint").append(
         "<p>" + singleDatapointValue + " hPa</p>"
     ).addClass(generatePercentileClass(singleDatapointValue));
+
+
+    let bgColor = $(".currentSingleDatapoint").css("background-color");
+    $(".currentSingleDatapoint").addClass(generateAppropriateFgColor(bgColor));
+
 });

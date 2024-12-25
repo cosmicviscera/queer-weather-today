@@ -5,8 +5,12 @@ $( document ).ready(function() {
 
     // TODO put real data in here at some point
     const singleDatapointValue = Math.round(Math.random() * 100, 1);
+
     $(".currentSingleDatapoint").append(
         "<p>" + singleDatapointValue + "°C</p>"
     ).addClass(generatePercentileClass(singleDatapointValue));
+
+    let bgColor = $(".currentSingleDatapoint").css("background-color");
+    $(".currentSingleDatapoint").addClass(generateAppropriateFgColor(bgColor));
 
 });
