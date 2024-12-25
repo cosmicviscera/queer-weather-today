@@ -207,7 +207,7 @@ function initialiseForecastLinechart(dataPoints, min, max, canvasClass, parentId
                     x: {
                         grid: {
                             display: !isMultiForecast,
-                            min: min, // TODO this isn't working
+                            min: min,
                             max: max
                         },
                         ticks: {

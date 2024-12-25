@@ -30,6 +30,14 @@ $( document ).ready(function() {
       type: 'bar',
       data: generateBarGraphData(allergenTypes),
       options: {
+          scales: {
+              x: {
+                  grid: {
+                      min: MIN, // TODO this isn't working
+                      max: MAX
+                  }
+              }
+          },
         responsive: true,
         indexAxis: 'y',
         plugins: {
