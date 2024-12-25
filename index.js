@@ -1,11 +1,16 @@
 
 $( document ).ready(function() {
+    // what page are we on?
+
     function getUrlParams(str) {
-         var urlRegex = '\\?(?<firstParam>.*)';
-         var regex = new RegExp(urlRegex, 'g');
-         for (const match of location.href.matchAll(regex)) {
-             return(match.groups.firstParam);
-         }
+        var urlRegex = '\\?(?<firstParam>.*)';
+        var regex = new RegExp(urlRegex, 'g');
+        if (location.href.match(regex)) {
+            for (const match of location.href.matchAll(regex)) {
+                return(match.groups.firstParam);
+            }
+        }
+        return "";
     }
 
     const urlParams = getUrlParams();
@@ -15,7 +20,6 @@ $( document ).ready(function() {
 
         $(".sidebar > a").removeClass("active");
         $(".sidebar > a." + urlParams).addClass("active");
-
     }
 
     const locations = ["Melbourne CBD", "Ivanhoe", "Northcote", 
@@ -274,47 +278,5 @@ $( document ).ready(function() {
     }
 
     initialiseLocationPicker();
-
-    //////////////// sidebar links ////////////////
-
-    // Code for sidebar links
-    $(".sidebar > a").on("click", function() {
-        $(window).scrollTop(0);
-
-        // get only the first class from the element
-        const sectionClass = $(this).attr("class").split(' ')[0];
-
-        $(".weather-category").addClass("hidden");
-        $(".weather-category."+sectionClass).removeClass("hidden");
-
-        $(".sidebar > a").removeClass("active");
-        $(this).addClass("active");
-
-        // don't follow the link, and exist the listener
-        event.preventDefault();
-        return false;
-    });
-
-    // Accessible sidebar elements: listen for focus and switch page if user hits enter
-    $(".sidebar > a ").on("focus", function() {
-        // get only the first class from the element
-        const sidebarLink = $(this);
-        const sectionClass = sidebarLink.attr("class").split(' ')[0];
-
-        document.addEventListener("keydown", (event) => {
-            if (event.key === "Enter") {
-                $(".weather-category").addClass("hidden");
-                $(".weather-category."+sectionClass).removeClass("hidden");
-
-                $(".sidebar > a").removeClass("active");
-                sidebarLink.addClass("active");
-
-                // don't follow the link, and exist the listener
-                event.preventDefault();
-                return false;
-            }
-        });
-    });
-
 
 });
