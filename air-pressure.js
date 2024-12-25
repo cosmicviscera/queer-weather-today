@@ -6,6 +6,6 @@ $( document ).ready(function() {
     // TODO put real data in here at some point
     const singleDatapointValue = Math.round(Math.random() * 100, 1);
     $(".currentSingleDatapoint").append(
-        "<p>" + singleDatapointValue + "</p>"
+        "<p>" + singleDatapointValue + " hPa</p>"
     ).addClass(generatePercentileClass(singleDatapointValue));
 });
