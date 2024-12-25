@@ -55,6 +55,15 @@ img {
   margin-top: 50px;
 }
 
+.currentSingleDatapoint {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--fg-color);
+  background: lightgray;
+  padding: 30px;
+}
+
 /******** forecast layout ******/
 
 .linechart {
