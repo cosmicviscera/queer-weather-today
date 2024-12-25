@@ -6,4 +6,5 @@ $( document ).ready(function() {
     // TODO put real data in here at some point
     $(".currentSingleDatapoint").append("<p>" + Math.round(Math.random() * 100, 1) + "</p>");
 
+    // TODO programmatically pick color for single datapoint background
 });
