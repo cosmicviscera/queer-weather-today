@@ -1,5 +1,5 @@
-const MIN = 0;
-const MAX = 100;
+const MIN = 50;
+const MAX = 80;
 
 const airQualityTypes = ["PM10", "PM25", "NO2", "SO2", "CO", "O3", "AQI"];
 
@@ -17,7 +17,7 @@ $( document ).ready(function() {
                 label: "ppm",
                 data: currentForecast,
                 fill: false,
-                backgroundColor: generateBarColors(currentForecast),
+                backgroundColor: generateBarColors(normaliseNumberArray(currentForecast, MIN, MAX)),
                 borderWidth: 1
             }]
         };

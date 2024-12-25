@@ -7,7 +7,7 @@ $( document ).ready(function() {
 
     // TODO put real data in here at some point
     const singleDatapointValue = getRandomInt(MIN, MAX);
-    const normalisedValue = normaliseNumberRange(singleDatapointValue, MIN, MAX);
+    const normalisedValue = normaliseNumber(singleDatapointValue, MIN, MAX);
 
     $(".currentSingleDatapoint").append(
         "<p>" + singleDatapointValue + "°C</p>"

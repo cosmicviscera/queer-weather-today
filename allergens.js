@@ -1,5 +1,5 @@
-const MIN = 0;
-const MAX = 100;
+const MIN = 100;
+const MAX = 200;
 
 const allergenTypes = [
     "Grass", "Alternaria", "Plantain",
@@ -20,7 +20,7 @@ $( document ).ready(function() {
                 label: "ppm",
                 data: currentForecast,
                 fill: false,
-                backgroundColor: generateBarColors(currentForecast),
+                backgroundColor: generateBarColors(normaliseNumberArray(currentForecast, MIN, MAX)),
                 borderWidth: 1
             }]
         };

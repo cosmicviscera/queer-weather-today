@@ -19,8 +19,16 @@ function getRandomInt(min, max) {
 }
 
 // TODO write a version of this function to deal with arrays of numbers, for the graphs
-function normaliseNumberRange(val, min, max) {
+function normaliseNumber(val, min, max) {
     return (val - min) / (max - min) * 100;
+}
+
+function normaliseNumberArray(originalArray, min, max) {
+    let normalisedArray = [];
+    for (let i = 0; i < originalArray.length; i++) {
+        normalisedArray[i] = normaliseNumber(originalArray[i], min, max);
+    }
+    return normalisedArray;
 }
 
 let width, height, gradient;
@@ -198,7 +206,9 @@ function initialiseForecastLinechart(dataPoints, min, max, canvasClass, parentId
                 scales: {
                     x: {
                         grid: {
-                            display: !isMultiForecast
+                            display: !isMultiForecast,
+                            min: min, // TODO this isn't working
+                            max: max
                         },
                         ticks: {
                             display: horizontalLabelDisplay
