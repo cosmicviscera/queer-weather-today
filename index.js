@@ -143,37 +143,6 @@ $( document ).ready(function() {
     initialiseMultiForecast(['temperature'], "temperatureLinechart linechart singleLinechart", "#temperatureForecast", false);
     initialiseMultiForecast(['humidity'], "humidityLinechart linechart singleLinechart", "#humidityForecast", false);
 
-
-    // add our list of locations to the search dropdown
-    function initialiseLocationPicker() {
-        $.each(locations, function() {
-            $("#locationList").append("<option value='" + this + "'>"+ this + "</option>");
-
-            // make melbs the default
-            if (this == "Melbourne CBD") {
-                $("#locationList option").prop('selected', true);
-            }
-        });
-
-        var options = {searchable: true};
-        NiceSelect.bind(document.getElementById("locationList"), options);
-    }
-
-    initialiseLocationPicker();
-
-    // Code for sidebar links
-    $(".sidebar > a").on("click", function() {
-        $(window).scrollTop(0);
-
-        var sectionClass = $(this).attr("class");
-        $(".weather-category").addClass("hidden");
-        $(".weather-category."+sectionClass).removeClass("hidden");
-
-        $(".sidebar > a").removeClass("active");
-        $(this).addClass("active");
-    });
-
-
     // Update forecasts - TODO placeholder for when we have real data to update
     function updateForecasts(location) {
         console.log("Current location has been changed to: " + location);
@@ -201,7 +170,6 @@ $( document ).ready(function() {
             }
         }
 
-        console.log(barColors)
         return barColors;
     }
 
@@ -270,5 +238,42 @@ $( document ).ready(function() {
             $(this).append("<p>" + Math.round(Math.random() * 100, 1) + "</p>");
         }
     );
+
+
+    /////////////// location picker //////////////
+
+    // add our list of locations to the search dropdown
+    function initialiseLocationPicker() {
+        $.each(locations, function() {
+            $("#locationList").append("<option value='" + this + "'>"+ this + "</option>");
+
+            // make melbs the default
+            if (this == "Melbourne CBD") {
+                $("#locationList option").prop('selected', true);
+            }
+        });
+
+        var options = {searchable: true};
+        NiceSelect.bind(document.getElementById("locationList"), options);
+    }
+
+    initialiseLocationPicker();
+
+    //////////////// sidebar links ////////////////
+
+    // Code for sidebar links
+    $(".sidebar > a").on("click", function() {
+        $(window).scrollTop(0);
+
+        // get only the first class from the element
+        const sectionClass = $(this).attr("class").split(' ')[0];
+
+        $(".weather-category").addClass("hidden");
+        $(".weather-category."+sectionClass).removeClass("hidden");
+
+        $(".sidebar > a").removeClass("active");
+        $(this).addClass("active");
+    });
+
 
 });
