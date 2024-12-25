@@ -1,6 +1,22 @@
 
 $( document ).ready(function() {
+    function getUrlParams(str) {
+         var urlRegex = '\\?(?<firstParam>.*)';
+         var regex = new RegExp(urlRegex, 'g');
+         for (const match of location.href.matchAll(regex)) {
+             return(match.groups.firstParam);
+         }
+    }
 
+    const urlParams = getUrlParams();
+    if (urlParams.length > 0) {
+        $(".weather-category").addClass("hidden");
+        $(".weather-category."+ urlParams).removeClass("hidden");
+
+        $(".sidebar > a").removeClass("active");
+        $(".sidebar > a." + urlParams).addClass("active");
+
+    }
 
     const locations = ["Melbourne CBD", "Ivanhoe", "Northcote", 
         "Footscray", "Frankston", "Dandenong", "Reservoir", "Preston"];
@@ -273,6 +289,10 @@ $( document ).ready(function() {
 
         $(".sidebar > a").removeClass("active");
         $(this).addClass("active");
+
+        // don't follow the link, and exist the listener
+        event.preventDefault();
+        return false;
     });
 
     // Accessible sidebar elements: listen for focus and switch page if user hits enter
