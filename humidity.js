@@ -1,6 +1,6 @@
 
 $( document ).ready(function() {
 
-    initialiseMultiForecast(['humidity'], "humidityLinechart linechart singleLinechart", "#humidityForecast", false);
+    initialiseForecastLinechart(['humidity'], "humidityLinechart linechart singleLinechart", "#humidityForecast", false);
 
 });

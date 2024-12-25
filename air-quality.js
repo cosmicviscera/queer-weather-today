@@ -1,7 +1,7 @@
 
 $( document ).ready(function() {
 
-    initialiseMultiForecast(airQualityTypes, "aqiLinechart linechart multiLinechart", "#aqiForecast", true);
+    initialiseForecastLinechart(airQualityTypes, "aqiLinechart linechart multiLinechart", "#aqiForecast", true);
 
     function generateBarGraphData(dataPoints) {
         // placeholder data

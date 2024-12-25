@@ -1,6 +1,6 @@
 
 $( document ).ready(function() {
 
-    initialiseMultiForecast(['temperature'], "temperatureLinechart linechart singleLinechart", "#temperatureForecast", false);
+    initialiseForecastLinechart(['temperature'], "temperatureLinechart linechart singleLinechart", "#temperatureForecast", false);
 
 });

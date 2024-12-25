@@ -5,7 +5,7 @@ const allergenTypes = [
 
 $( document ).ready(function() {
 
-    initialiseMultiForecast(allergenTypes, "allergensLinechart linechart multiLinechart", "#allergensForecast", true);
+    initialiseForecastLinechart(allergenTypes, "allergensLinechart linechart multiLinechart", "#allergensForecast", true);
 
     function generateBarGraphData(dataPoints) {
         // placeholder data

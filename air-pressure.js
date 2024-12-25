@@ -1,6 +1,6 @@
 
 $( document ).ready(function() {
 
-    initialiseMultiForecast(['airPressure'], "airPressureLinechart linechart singleLinechart", "#airPressureForecast", false);
+    initialiseForecastLinechart(['airPressure'], "airPressureLinechart linechart singleLinechart", "#airPressureForecast", false);
 
 });

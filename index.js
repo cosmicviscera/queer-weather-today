@@ -70,7 +70,7 @@ function generateRandomForecast() {
     return numbers;
 }
 
-function initialiseMultiForecast(dataPoints, canvasClass, parentId, isMultiForecast) {
+function initialiseForecastLinechart(dataPoints, canvasClass, parentId, isMultiForecast) {
     for (let i = 0; i < dataPoints.length; i++) {
         const canvasId = dataPoints[i] + "Chart";
         var heightString = "";
